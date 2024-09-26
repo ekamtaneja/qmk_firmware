@@ -181,7 +181,6 @@ void fn_reset(tap_dance_state_t *state, void *user_data) {
     fn_tap_state.state = TD_NONE;
 }
 
-// Associate our tap dance key with its functionality
 tap_dance_action_t tap_dance_actions[] = {
     [FN_NUM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, fn_finished, fn_reset)
 };
