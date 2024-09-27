@@ -72,6 +72,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case GUI_T(KC_A):
         case GUI_T(KC_SCLN):
+        case GUI_T(KC_C):
+        case GUI_T(KC_N):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LGUI);
                 return false;
@@ -79,6 +81,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
         case SFT_T(KC_D):
         case SFT_T(KC_K):
+        case SFT_T(KC_E):
+        case SFT_T(KC_T):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LSFT);
                 return false;
@@ -86,6 +90,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
         case ALT_T(KC_S):
         case ALT_T(KC_L):
+        case ALT_T(KC_I):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LALT);
                 return false;
@@ -93,6 +98,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
         case CTL_T(KC_F):
         case CTL_T(KC_J):
+        case CTL_T(KC_A):
+        case CTL_T(KC_H):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LCTL);
                 return false;
@@ -121,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_ENG] = LAYOUT_65_ansi_blocker( /* Engrammer */
 		QK_GESC,    KC_1,        KC_2,          KC_3,          KC_4,          KC_5,    KC_6,    KC_7,        KC_8,        KC_9,        KC_0,           KC_LBRC, KC_RBRC, KC_BSPC, KC_TRNS,
 		KC_TAB,     KC_B,        KC_Y,          KC_O,          KC_U,          KC_QUOT, KC_SCLN, KC_L,        KC_D,        KC_W,        KC_V,           KC_Z,    KC_EQL,  KC_BSLS, KC_TRNS,
-		TD(FN_NUM), KC_C,        KC_I,          KC_E,          KC_A,          KC_COMM, KC_DOT,  KC_H,        KC_T,        KC_S,        KC_N,           KC_Q,             KC_ENT,  TG(_ENG),
+		TD(FN_NUM), GUI_T(KC_C), ALT_T(KC_I),   SFT_T(KC_E),   CTL_T(KC_A),   KC_COMM, KC_DOT,  CTL_T(KC_H), SFT_T(KC_T), ALT_T(KC_S), GUI_T(KC_N),    KC_Q,             KC_ENT,  TG(_ENG),
 		KC_LSFT,    KC_G,        KC_X,          KC_J,          KC_K,          KC_MINS, KC_SLSH, KC_R,        KC_M,        KC_F,        KC_P,           KC_RSFT,          KC_UP,   TG(_GAM),
 		KC_LCTL,    KC_LGUI,     KC_LALT,                                     KC_SPC,                        KC_CAPS,                  KC_RALT,        KC_LEFT,          KC_DOWN, KC_RIGHT
 	),
