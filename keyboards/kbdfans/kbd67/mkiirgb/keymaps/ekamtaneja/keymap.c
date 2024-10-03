@@ -147,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_NO,      KC_NO,       KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_NO,       KC_NO,       KC_NO,       KC_NO,          KC_NO,   KC_NO,   KC_ENT,  KC_NO,
 		KC_NO,      KC_NO,       KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_TAB,  KC_P7,       KC_P8,       KC_P9,       KC_PPLS,        KC_PAST, KC_NO,   KC_NO,   KC_NO,
 		KC_NO,      KC_NO,       KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_P4,       KC_P5,       KC_P6,       KC_PMNS,        KC_PSLS,          KC_BSPC, KC_NO,
-		KC_NO,      KC_NO,       KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_P1,       KC_P2,       KC_P3,       KC_PDOT,        KC_RSFT,          KC_NO,   KC_NO,
+		KC_LSFT,    KC_NO,       KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_P1,       KC_P2,       KC_P3,       KC_PDOT,        KC_RSFT,          KC_NO,   KC_NO,
 		KC_NO,      KC_NO,       KC_NO,                                       KC_P0,                         KC_NO,                    KC_NO,          KC_NO,            KC_NO,   KC_NO
 	),
 };
@@ -155,10 +155,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Determine the current tap dance state
 td_state_t cur_dance(tap_dance_state_t *state) {
     if (state->count == 1) {
-        if (!state->pressed) return TD_SINGLE_TAP; 
-        else return TD_SINGLE_HOLD; 
+        if (!state->pressed) return TD_SINGLE_TAP;
+        else return TD_SINGLE_HOLD;
     } else if (state->count == 2) {
-        if(!state->pressed) return TD_DOUBLE_TAP; 
+        if(!state->pressed) return TD_DOUBLE_TAP;
         else return TD_DOUBLE_HOLD;
     }
     else return TD_UNKNOWN;
@@ -170,7 +170,7 @@ static td_tap_t fn_tap_state = {
     .state = TD_NONE
 };
 
-// Determines what the Tap Dance key outputs 
+// Determines what the Tap Dance key outputs
 void esc_fn_finished(tap_dance_state_t *state, void *user_data) {
     fn_tap_state.state = cur_dance(state);
     switch (fn_tap_state.state) {
