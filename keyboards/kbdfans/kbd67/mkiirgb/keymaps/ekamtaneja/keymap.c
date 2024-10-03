@@ -81,7 +81,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case GUI_T(KC_N):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LGUI);
-                return false;
             }
             return true;
         case SFT_T(KC_D):
@@ -90,7 +89,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SFT_T(KC_T):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LSFT);
-                return false;
             }
             return true;
         case ALT_T(KC_S):
@@ -98,7 +96,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ALT_T(KC_I):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LALT);
-                return false;
             }
             return true;
         case CTL_T(KC_F):
@@ -107,7 +104,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case CTL_T(KC_H):
             if (!record->tap.count && record->event.pressed) {
                 add_oneshot_mods(MOD_LCTL);
-                return false;
             }
             return true;
     }
@@ -155,10 +151,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Determine the current tap dance state
 td_state_t cur_dance(tap_dance_state_t *state) {
     if (state->count == 1) {
-        if (!state->pressed) return TD_SINGLE_TAP; 
-        else return TD_SINGLE_HOLD; 
+        if (!state->pressed) return TD_SINGLE_TAP;
+        else return TD_SINGLE_HOLD;
     } else if (state->count == 2) {
-        if(!state->pressed) return TD_DOUBLE_TAP; 
+        if(!state->pressed) return TD_DOUBLE_TAP;
         else return TD_DOUBLE_HOLD;
     }
     else return TD_UNKNOWN;
@@ -170,7 +166,7 @@ static td_tap_t fn_tap_state = {
     .state = TD_NONE
 };
 
-// Determines what the Tap Dance key outputs 
+// Determines what the Tap Dance key outputs
 void esc_fn_finished(tap_dance_state_t *state, void *user_data) {
     fn_tap_state.state = cur_dance(state);
     switch (fn_tap_state.state) {
