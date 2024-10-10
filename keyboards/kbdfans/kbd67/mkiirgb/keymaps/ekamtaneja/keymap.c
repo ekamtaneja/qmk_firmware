@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_LCTL,    KC_LGUI,     KC_LALT,                                     KC_SPC,                        KC_CAPS,                  KC_RALT,        KC_LEFT,          KC_DOWN, KC_RIGHT
 	),
 	[_GAM] = LAYOUT_65_ansi_blocker( /* 5xFN */
-		KC_ESC,     KC_TRNS,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+		KC_GRV,     KC_TRNS,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 		KC_TRNS,    KC_TRNS,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 		TD(ESC_FN), KC_A,        KC_S,          KC_D,          KC_F,          KC_TRNS, KC_TRNS, KC_J,        KC_K,        KC_L,        KC_SCLN,        KC_TRNS,          KC_TRNS, TG(_ENG),
 		KC_TRNS,    KC_TRNS,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS,          KC_TRNS, TG(_GAM),
