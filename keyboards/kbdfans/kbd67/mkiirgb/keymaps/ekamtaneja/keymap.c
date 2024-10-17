@@ -134,16 +134,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 	[_FN] = LAYOUT_65_ansi_blocker( /* FN */
 		KC_NO,      KC_F1,       KC_F2,       KC_F3,         KC_F4,        KC_F5,   KC_F6,   KC_F7,        KC_F8,       KC_F9,       KC_F10,         KC_F11,  KC_F12,  EE_CLR,  KC_PSCR,
-		KC_NO,      KC_NO,       KC_NO,       KC_WBAK,       KC_WFWD,      KC_NO,   KC_NO,   KC_PGDN,      KC_UP,       KC_PGUP,     KC_INS,         KC_SCRL, KC_PAUS, QK_BOOT, KC_PAUS,
-		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_NO,   KC_LEFT,      KC_DOWN,     KC_RGHT,     KC_NO,          KC_NO,            KC_DEL,  KC_PGDN,
+		KC_NO,      KC_NO,       KC_NO,       KC_WBAK,       KC_WFWD,      KC_NO,   KC_HOME, KC_PGUP,      KC_PGDN,     KC_END       C_INS,         KC_SCRL, KC_PAUS, QK_BOOT, KC_PAUS,
+		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_LEFT, KC_UP         KC_DOWN,     KC_RGHT,     KC_NO,          KC_NO,            KC_DEL,  KC_PGDN,
 		KC_NO,      KC_NO,       KC_NO,       RGB_TOG,       RGB_MOD,      RGB_SPI, RGB_HUI, RGB_SAI,      RGB_VAI,     KC_NO,       KC_NO,          KC_NO,            KC_VOLU, KC_MUTE,
 		KC_NO,      KC_NO,       KC_NO,                                    KC_SPC,                         KC_NO,                    KC_NO,          KC_MPRV,          KC_VOLD, KC_MNXT
 	),
 	[_NUM] = LAYOUT_65_ansi_blocker( /* FN */
 		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_NO,   KC_NO,        KC_NO,       KC_NO,       KC_NO,          KC_NO,   KC_NO,   KC_ENT,  KC_NO,
-		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_TAB,  KC_P7,        KC_P8,       KC_P9,       KC_PPLS,        KC_PAST, KC_NO,   KC_NO,   KC_NO,
-		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_NO,   KC_P4,        KC_P5,       KC_P6,       KC_PMNS,        KC_PSLS,          KC_BSPC, KC_NO,
-		KC_LSFT,    KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_NO,   KC_P1,        KC_P2,       KC_P3,       KC_PDOT,        KC_RSFT,          KC_NO,   KC_NO,
+		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_TAB,  KC_7,         KC_8,        KC_9,        KC_PPLS,        KC_PAST, KC_NO,   KC_NO,   KC_NO,
+		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_NO,   KC_4,         KC_5,        KC_6,        KC_PMNS,        KC_PSLS,          KC_BSPC, KC_NO,
+		KC_LSFT,    KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_NO,   KC_1,         KC_2,        KC_3,        KC_PDOT,        KC_RSFT,          KC_NO,   KC_NO,
 		KC_NO,      KC_NO,       KC_NO,                                    KC_P0,                          KC_NO,                    KC_NO,          KC_NO,            KC_NO,   KC_NO
 	),
 };
