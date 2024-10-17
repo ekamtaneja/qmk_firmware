@@ -120,22 +120,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 	[_GAM] = LAYOUT_65_ansi_blocker( /* 5xFN */
 		KC_GRV,     KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-		KC_TRNS,    KC_TRNS,     KC_TRNS,     KC_E           KC_R          KC_TRNS, KC_TRNS, KC_U          KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+		KC_TRNS,    KC_TRNS,     KC_TRNS,     KC_E,          KC_R,         KC_TRNS, KC_TRNS, KC_U,         KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 		TD(ESC_FN), KC_A,        KC_S,        KC_D,          KC_F,         KC_TRNS, KC_TRNS, KC_J,         KC_K,        KC_L,        KC_SCLN,        KC_TRNS,          KC_TRNS, TG(_ENG),
 		KC_TRNS,    KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS,          KC_TRNS, TG(_GAM),
 		KC_TRNS,    KC_TRNS,     KC_TRNS,                                  KC_SPC,                         KC_TRNS,                  KC_TRNS,        KC_TRNS,          KC_TRNS, KC_TRNS
 	),
     	[_ENG] = LAYOUT_65_ansi_blocker( /* Engrammer */
 		KC_GRV,     KC_1,        KC_2,        KC_3,          KC_4,         KC_5,    KC_6,    KC_7,         KC_8,        KC_9,        KC_0,           KC_LBRC, KC_RBRC, KC_ENT,  KC_TRNS,
-		KC_TAB,     KC_B,        KC_Y,        LT(_NUM,KC_O), LT(_FN,KC_U), KC_QUOT, KC_SCLN, KC_L,         LT(_FN,KC_D) KC_W,        KC_V,           KC_Z,    KC_EQL,  KC_BSLS, KC_TRNS,
+		KC_TAB,     KC_B,        KC_Y,        LT(_NUM,KC_O), LT(_FN,KC_U), KC_QUOT, KC_SCLN, LT(_FN,KC_L), KC_D,        KC_W,        KC_V,           KC_Z,    KC_EQL,  KC_BSLS, KC_TRNS,
 		TD(ESC_FN), GUI_T(KC_C), ALT_T(KC_I), SFT_T(KC_E),   CTL_T(KC_A),  KC_COMM, KC_DOT,  CTL_T(KC_H),  SFT_T(KC_T), ALT_T(KC_S), GUI_T(KC_N),    KC_Q,             KC_BSPC, TG(_ENG),
 		KC_LSFT,    KC_G,        KC_X,        KC_J,          KC_K,         KC_MINS, KC_SLSH, KC_R,         KC_M,        KC_F,        KC_P,           KC_RSFT,          KC_UP,   TG(_GAM),
 		KC_LCTL,    KC_LGUI,     KC_LALT,                                  KC_SPC,                         KC_CAPS,                  KC_RALT,        KC_LEFT,          KC_DOWN, KC_RIGHT
 	),
 	[_FN] = LAYOUT_65_ansi_blocker( /* FN */
 		KC_NO,      KC_F1,       KC_F2,       KC_F3,         KC_F4,        KC_F5,   KC_F6,   KC_F7,        KC_F8,       KC_F9,       KC_F10,         KC_F11,  KC_F12,  EE_CLR,  KC_PSCR,
-		KC_NO,      KC_NO,       KC_NO,       KC_WBAK,       KC_WFWD,      KC_NO,   KC_HOME, KC_PGUP,      KC_PGDN,     KC_END       C_INS,         KC_SCRL, KC_PAUS, QK_BOOT, KC_PAUS,
-		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_LEFT, KC_UP         KC_DOWN,     KC_RGHT,     KC_NO,          KC_NO,            KC_DEL,  KC_PGDN,
+		KC_NO,      KC_NO,       KC_NO,       KC_WBAK,       KC_WFWD,      KC_NO,   KC_HOME, KC_PGUP,      KC_PGDN,     KC_END,      KC_INS,         KC_SCRL, KC_PAUS, QK_BOOT, KC_PAUS,
+		KC_NO,      KC_NO,       KC_NO,       KC_NO,         KC_NO,        KC_NO,   KC_LEFT, KC_UP,        KC_DOWN,     KC_RGHT,     KC_NO,          KC_NO,            KC_DEL,  KC_PGDN,
 		KC_NO,      KC_NO,       KC_NO,       RGB_TOG,       RGB_MOD,      RGB_SPI, RGB_HUI, RGB_SAI,      RGB_VAI,     KC_NO,       KC_NO,          KC_NO,            KC_VOLU, KC_MUTE,
 		KC_NO,      KC_NO,       KC_NO,                                    KC_SPC,                         KC_NO,                    KC_NO,          KC_MPRV,          KC_VOLD, KC_MNXT
 	),
