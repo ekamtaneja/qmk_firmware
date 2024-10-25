@@ -33,9 +33,6 @@
             "pixel_fractal": true,
             "typing_heatmap": true
         },
-        "default": {
-            "animation": "cycle_all"
-        },
         "driver": "is31fl3741",
         "val_steps": 8,
         "led_flush_limit": 26,

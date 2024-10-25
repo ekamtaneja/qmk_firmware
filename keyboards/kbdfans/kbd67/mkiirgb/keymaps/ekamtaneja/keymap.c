@@ -17,11 +17,12 @@
 #include QMK_KEYBOARD_H
 #include <stdint.h>
 
-#define _DEF 0
-#define _GAM 1
-#define _ENG 2
-#define _FN 3
-#define _NUM 4
+#define _DEFAULT 0
+#define _GAMING 1
+#define _ENGRAM 2
+#define _ENGRAM_GAMING 3
+#define _FN 4
+#define _NUM 5
 
 /* Declarations for ESC+FN+NUM Tap Dance*/
 typedef enum {
@@ -56,23 +57,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         case _FN:
             rgb_matrix_mode(RGB_MATRIX_JELLYBEAN_RAINDROPS);
             break;
-        case _ENG:
+        case _ENGRAM_GAMING:
+            rgb_matrix_mode(RGB_MATRIX_PIXEL_FRACTAL);
+            break;
+        case _ENGRAM:
             rgb_matrix_mode(RGB_MATRIX_RIVERFLOW);
             break;
-        case _GAM:
+        case _GAMING:
             rgb_matrix_mode(RGB_MATRIX_MULTISPLASH);
             break;
-        case _DEF:
-            rgb_matrix_mode(RGB_MATRIX_CYCLE_ALL);
-            break;
-        default:
+        case _DEFAULT:
             rgb_matrix_mode(RGB_MATRIX_CYCLE_ALL);
             break;
     }
     return state;
 }
 
-/* Determine the correct keycode for _DEF Home Row Modifiers */
+/* Determine the correct keycode for _DEFAULT Home Row Modifiers */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case GUI_T(KC_A):
@@ -111,35 +112,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[_DEF] = LAYOUT_65_ansi_blocker( /* Default */
-		KC_GRV,     KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_6,    KC_7,         KC_8,        KC_9,        KC_0,           KC_MINS, KC_EQL,  KC_ENT,  KC_TRNS,
-		KC_TAB,     KC_Q,          KC_W,          LT(_NUM,KC_E), LT(_FN,KC_R),  KC_T,    KC_Y,    LT(_FN,KC_U), KC_I,        KC_O,        KC_P,           KC_LBRC, KC_RBRC, KC_BSLS, KC_TRNS,
-		TD(ESC_FN), GUI_T(KC_A),   ALT_T(KC_S),   SFT_T(KC_D),   CTL_T(KC_F),   KC_G,    KC_H,    CTL_T(KC_J),  SFT_T(KC_K), ALT_T(KC_L), GUI_T(KC_SCLN), KC_QUOT,          KC_BSPC, TG(_ENG),
-		KC_LSFT,    KC_Z,          KC_X,          KC_C,          KC_V,          KC_B,    KC_N,    KC_M,         KC_COMM,     KC_DOT,      KC_SLSH,        KC_RSFT,          KC_UP,   TG(_GAM),
+	[_DEFAULT] = LAYOUT_65_ansi_blocker( /* Default */
+		KC_GRV,     KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_6,    KC_7,         KC_8,        KC_9,        KC_0,           KC_MINS, KC_EQL,  KC_ENT,  TG(_ENGRAM),
+		KC_TAB,     KC_Q,          KC_W,          LT(_NUM,KC_E), LT(_FN,KC_R),  KC_T,    KC_Y,    LT(_FN,KC_U), KC_I,        KC_O,        KC_P,           KC_LBRC, KC_RBRC, KC_BSLS, TG(_GAMING),
+		TD(ESC_FN), GUI_T(KC_A),   ALT_T(KC_S),   SFT_T(KC_D),   CTL_T(KC_F),   KC_G,    KC_H,    CTL_T(KC_J),  SFT_T(KC_K), ALT_T(KC_L), GUI_T(KC_SCLN), KC_QUOT,          KC_BSPC, KC_TRNS,
+		KC_LSFT,    KC_Z,          KC_X,          KC_C,          KC_V,          KC_B,    KC_N,    KC_M,         KC_COMM,     KC_DOT,      KC_SLSH,        KC_RSFT,          KC_UP,   KC_TRNS,
 		KC_LCTL,    KC_LGUI,       KC_LALT,                                     KC_SPC,                         KC_CAPS,                  KC_RALT,        KC_LEFT,          KC_DOWN, KC_RIGHT
 	),
-	[_GAM] = LAYOUT_65_ansi_blocker( /* 5xFN   */
-		KC_GRV,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-		KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_E,          KC_R,          KC_TRNS, KC_TRNS, KC_U,         KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-		TD(ESC_FN), KC_A,          KC_S,          KC_D,          KC_F,          KC_TRNS, KC_TRNS, KC_J,         KC_K,        KC_L,        KC_SCLN,        KC_TRNS,          KC_TRNS, TG(_ENG),
-		KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS,          KC_TRNS, TG(_GAM),
+	[_GAMING] = LAYOUT_65_ansi_blocker( /* Gaming */
+		KC_GRV,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, TG(_ENGRAM),
+		KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_E,          KC_R,          KC_TRNS, KC_TRNS, KC_U,         KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, TG(_GAMING),
+		TD(ESC_FN), KC_A,          KC_S,          KC_D,          KC_F,          KC_TRNS, KC_TRNS, KC_J,         KC_K,        KC_L,        KC_SCLN,        KC_TRNS,          KC_TRNS, KC_TRNS,
+		KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS,          KC_TRNS, KC_TRNS,
 		KC_TRNS,    KC_TRNS,       KC_TRNS,                                     KC_SPC,                         KC_TRNS,                  KC_TRNS,        KC_TRNS,          KC_TRNS, KC_TRNS
 	),
-    	[_ENG] = LAYOUT_65_ansi_blocker( /* Engrammer */
-		KC_GRV,     KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_6,    KC_7,         KC_8,        KC_9,        KC_0,           KC_LBRC, KC_RBRC, KC_ENT,  KC_TRNS,
-		KC_TAB,     KC_B,          KC_Y,          LT(_NUM,KC_O), LT(_FN,KC_U),  KC_QUOT, KC_SCLN, LT(_FN,KC_L), KC_D,        KC_W,        KC_V,           KC_Z,    KC_EQL,  KC_BSLS, KC_TRNS,
-		TD(ESC_FN), GUI_T(KC_C),   ALT_T(KC_I),   SFT_T(KC_E),   CTL_T(KC_A),   KC_COMM, KC_DOT,  CTL_T(KC_H),  SFT_T(KC_T), ALT_T(KC_S), GUI_T(KC_N),    KC_Q,             KC_BSPC, TG(_ENG),
-		KC_LSFT,    KC_G,          KC_X,          KC_J,          KC_K,          KC_MINS, KC_SLSH, KC_R,         KC_M,        KC_F,        KC_P,           KC_RSFT,          KC_UP,   TG(_GAM),
+   	[_ENGRAM] = LAYOUT_65_ansi_blocker( /* Engrammer */
+		KC_GRV,     KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_6,    KC_7,         KC_8,        KC_9,        KC_0,           KC_LBRC, KC_RBRC, KC_ENT,  TG(_ENGRAM),
+		KC_TAB,     KC_B,          KC_Y,          LT(_NUM,KC_O), LT(_FN,KC_U),  KC_QUOT, KC_SCLN, LT(_FN,KC_L), KC_D,        KC_W,        KC_V,           KC_Z,    KC_EQL,  KC_BSLS, TG(_ENGRAM_GAMING),
+		TD(ESC_FN), GUI_T(KC_C),   ALT_T(KC_I),   SFT_T(KC_E),   CTL_T(KC_A),   KC_COMM, KC_DOT,  CTL_T(KC_H),  SFT_T(KC_T), ALT_T(KC_S), GUI_T(KC_N),    KC_Q,             KC_BSPC, KC_TRNS,
+		KC_LSFT,    KC_G,          KC_X,          KC_J,          KC_K,          KC_MINS, KC_SLSH, KC_R,         KC_M,        KC_F,        KC_P,           KC_RSFT,          KC_UP,   KC_TRNS,
 		KC_LCTL,    KC_LGUI,       KC_LALT,                                     KC_SPC,                         KC_CAPS,                  KC_RALT,        KC_LEFT,          KC_DOWN, KC_RIGHT
 	),
-	[_FN] = LAYOUT_65_ansi_blocker( /* FN */
+	[_ENGRAM_GAMING] = LAYOUT_65_ansi_blocker( /* Engrammer Gaming */
+		KC_GRV,     KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, TG(_ENGRAM),
+		KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_O,          KC_U,          KC_TRNS, KC_TRNS, KC_L,         KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, TG(_ENGRAM_GAMING),
+		TD(ESC_FN), KC_C,          KC_I,          KC_E,          KC_A,          KC_TRNS, KC_TRNS, KC_H,         KC_T,        KC_S,        KC_N,           KC_TRNS,          KC_TRNS, KC_TRNS,
+		KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_TRNS,          KC_TRNS, KC_TRNS,
+		KC_TRNS,    KC_TRNS,       KC_TRNS,                                     KC_SPC,                         KC_TRNS,                  KC_TRNS,        KC_TRNS,          KC_TRNS, KC_TRNS
+	),
+    [_FN] = LAYOUT_65_ansi_blocker( /* FN */
 		KC_NO,      KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,   KC_F6,   KC_F7,        KC_F8,       KC_F9,       KC_F10,         KC_F11,  KC_F12,  EE_CLR,  KC_PSCR,
 		KC_NO,      KC_NO,         KC_NO,         KC_WBAK,       KC_WFWD,       KC_NO,   KC_HOME, KC_PGUP,      KC_PGDN,     KC_END,      KC_INS,         KC_SCRL, KC_PAUS, QK_BOOT, KC_PAUS,
 		KC_NO,      OSM(MOD_LGUI), OSM(MOD_LALT), OSM(MOD_LSFT), OSM(MOD_LCTL), KC_NO,   KC_LEFT, KC_DOWN,      KC_UP,       KC_RGHT,     KC_NO,          KC_NO,            KC_DEL,  KC_PGDN,
 		KC_NO,      KC_NO,         KC_NO,         RGB_TOG,       RGB_MOD,       RGB_SPI, RGB_HUI, RGB_SAI,      RGB_VAI,     KC_NO,       KC_NO,          KC_NO,            KC_VOLU, KC_MUTE,
 		KC_NO,      KC_NO,         KC_NO,                                       KC_SPC,                         KC_NO,                    KC_NO,          KC_MPRV,          KC_VOLD, KC_MNXT
 	),
-	[_NUM] = LAYOUT_65_ansi_blocker( /* FN */
+	[_NUM] = LAYOUT_65_ansi_blocker( /* NUM */
 		KC_NO,      KC_NO,         KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_NO,        KC_NO,       KC_NO,       KC_NO,          KC_NO,   KC_NO,   KC_ENT,  KC_NO,
 		KC_NO,      KC_NO,         KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_TAB,  KC_7,         KC_8,        KC_9,        KC_PPLS,        KC_PAST, KC_NO,   KC_NO,   KC_NO,
 		KC_NO,      KC_NO,         KC_NO,         KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_4,         KC_5,        KC_6,        KC_PMNS,        KC_PSLS,          KC_BSPC, KC_NO,
